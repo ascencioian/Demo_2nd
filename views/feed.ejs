@@ -1,0 +1,617 @@
+<!doctype html>
+<html>
+<head>
+    <title>Schedule-My-Day</title>
+    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> -->
+    <!-- css hotlink cdn for bootsrap from website -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- bootstrap icon links cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+    <!-- mapbox css link -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- mapbox script -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js'></script>
+    <!-- mabbox geocoder sript -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
+    <!-- mabbox geocoder stylesheet -->
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
+   
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top ">
+
+        <div class="container">
+            <!-- navbar logo -->
+            <a href="/" class="navbar-brand">Schedule-My-Day</a>
+            <!-- navbar button -->
+            <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navMenu"
+            >
+            <span class ='navbar-toggler-icon'></span> 
+            </button>
+            <!-- navbar links -->
+            <div class="collapse navbar-collapse" id="navMenu">
+
+                <ul class="navbar-nav ms-auto">
+                <!-- <li class="nav-item">
+                    <a href="#learn" class="nav-link">what you will learn</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#questions" class="nav-link">questions</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#instructors" class="nav-link">instructors</a>
+                </li> -->
+                <li class="nav-item">
+                    <a href="/logout" class="nav-link"><span class="fa fa-user"></span>Logout</a>
+                </li>
+                
+                <li class="nav-item">
+                  <a href="/profile" class="nav-link"><span class="fa fa-user"></span>Profile</a>
+                </li>
+                </ul>
+
+            </div>
+        
+        </div>
+    
+    </nav>
+     <!-- modal button -->
+
+
+     <!-- modal button -->
+     <div class="fixed-bottom mt-5 text-center">
+
+      <button
+      class="btn btn-warning btn-lg"
+      data-bs-toggle="modal"
+      data-bs-target="#enroll"
+    >
+      QuickMap
+    </button>
+    </div>
+
+    <!-- Banner -->
+    <section
+      class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start"
+    >
+      <div class="container">
+        <div class="d-sm-flex align-items-center justify-content-between">
+          <div>
+            <h1>Making memories <span class="text-warning" > effortlessly</span></h1>
+            <p class="lead my-4">
+              spending time with family, friends and children adds tremendous value to ones life.
+              We focus on creating a frictionless experience in spending time with those close to you.
+              Let us focus on the research and planning and you focus on creating unforgettable memories.
+
+            </p>
+
+           
+            
+
+            <!-- address form -->
+        
+              <div class="form-group">
+                  <label>Location</label>
+                  <input type="text" class="form form-control" name="email" placeholder="2924 Pennsylvania Avenue Lakewood, NJ 08701 " id='address'>
+                  <button class="btn btn-warning btn-lg mb-4" id='geoButton'>search</button>
+              </div>
+              
+           
+
+          </div>
+          <img
+            class="img-fluid w-50 d-none d-sm-block"
+            src="img/showcase.svg"
+            alt=""
+          />
+        </div>
+      </div>
+    </section>
+
+
+    <!-- restaurants -->
+    <section id="instructors" class="p-5 bg-primary">
+      <div class="container">
+        <h2 class="text-center text-white">Restaurants Near Me</h2>
+        <!-- <p class="lead text-center text-white mb-5">
+          Our instructors all have 5+ years working as a web developer in the
+          industry
+        </p> -->
+        
+        <div class="d-flex flex-row  overflow-auto">
+          
+          <div class="col-md-6 col-lg-3 col-sm-12 ">
+            <div class="card bg-light ">
+              <div class="card-body text-center">
+                <div class="today" id="RestaurantOne">
+                  <img src="img/restaurant.png" alt="weather icon" class="w-icon p-3">
+                  <h3 class="card-title mb-3 ret">Restaurant 1 Name</h3>
+                  <div class="other">
+                      <div class="day">restaurant address</div>
+                      <div class="temp">cuisine 1</div>
+                      <div class="temp">cuisine 2</div>
+                  </div>
+                  <button class="btn btn-warning btn-lg mb-4 bookmarkButton mt-3">bookmark</button>
+                </div>
+                
+                <!-- <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+                <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+                <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+                <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a> -->
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-3 col-sm-12">
+            <div class="card bg-light">
+              <div class="card-body text-center">
+                <div class="today" id="RestaurantTwo">
+                  <img src="img/restaurant.png" alt="weather icon" class="w-icon p-3">
+                  <h3 class="card-title mb-3 ret">Restaurant 1 Name</h3>
+                  <div class="other">
+                      <div class="day">restaurant address</div>
+                      <div class="temp">cuisine 1</div>
+                      <div class="temp">cuisine 2</div>
+                  </div>
+                  <button class="btn btn-warning btn-lg mb-4 bookmarkButton mt-3">bookmark</button>
+                </div>
+                
+                <!-- <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+                <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+                <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+                <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a> -->
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-3 col-sm-12">
+            <div class="card bg-light">
+              <div class="card-body text-center">
+                <div class="today" id="RestaurantThree">
+                  <img src="img/restaurant.png" alt="weather icon" class="w-icon p-3">
+                  <h3 class="card-title mb-3 ret">Restaurant 1 Name</h3>
+                  <div class="other">
+                      <div class="day">restaurant address</div>
+                      <div class="temp">cuisine 1</div>
+                      <div class="temp">cuisine 2</div>
+                  </div>
+                  <button class="btn btn-warning btn-lg mb-4 bookmarkButton mt-3">bookmark</button>
+                </div>
+               
+                <!-- <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+                <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+                <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+                <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a> -->
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-3 col-sm-12">
+            <div class="card bg-light">
+              <div class="card-body text-center">
+                <div class="today" id="RestaurantFour">
+                  <img src="img/restaurant.png" alt="weather icon" class="w-icon p-3">
+                  <h3 class="card-title mb-3 ret">Restaurant 1 Name</h3>
+                  <div class="other">
+                      <div class="day">restaurant address</div>
+                      <div class="temp">cuisine 1</div>
+                      <div class="temp">cuisine 2</div>
+                  </div>
+                  <button class="btn btn-warning btn-lg mb-4 bookmarkButton mt-3">bookmark</button>
+                </div>
+                
+                <!-- <button class="btn btn-warning btn-lg mb-4 bookmarkButton">bookmark</button> -->
+                <!-- <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+                <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+                <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+                <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- parks -->
+    <section id="instructors" class="p-5 bg-primary">
+      <div class="container">
+        <h2 class="text-center text-white">Parks Near Me</h2>
+        <!-- <p class="lead text-center text-white mb-5">
+          Our instructors all have 5+ years working as a web developer in the
+          industry
+        </p> -->
+        <div class="d-flex flex-row  overflow-auto">
+          <div class="col-md-6 col-lg-3 col-sm-12">
+            <div class="card bg-light">
+              <div class="card-body text-center">
+                <div class="today" id="parkOne">
+                  <img src="img/nature.png" alt="weather icon" class="w-icon p-3">
+                  <h3 class="card-title mb-3 ret">Park One Name</h3>
+                  <div class="other">
+                      <div class="day">Park address</div>
+                      <!-- <div class="temp">cuisine 1</div> -->
+                      <!-- <div class="temp">cuisine 2</div> -->
+                  </div>
+                  <button class="btn btn-warning btn-lg mb-4 bookmarkButton mt-3">bookmark</button>
+                </div>
+                
+                <!-- <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+                <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+                <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+                <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 col-sm-12">
+            <div class="card bg-light">
+              <div class="card-body text-center">
+                <div class="today" id="parkTwo">
+                  <img src="img/nature.png" alt="weather icon" class="w-icon p-3">
+                  <h3 class="card-title mb-3 ret">Park Two Name</h3>
+                  <div class="other">
+                      <div class="day">Park address</div>
+                      <!-- <div class="temp">cuisine 1</div> -->
+                      <!-- <div class="temp">cuisine 2</div> -->
+                  </div>
+                  <button class="btn btn-warning btn-lg mb-4 bookmarkButton mt-3">bookmark</button>
+                </div>
+               
+                <!-- <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+                <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+                <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+                <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 col-sm-12">
+            <div class="card bg-light">
+              <div class="card-body text-center">
+                <div class="today" id="parkThree">
+                  <img src="img/nature.png" alt="weather icon" class="w-icon p-3">
+                  <h3 class="card-title mb-3 ret">Park Three Name</h3>
+                  <div class="other">
+                      <div class="day">Park address</div>
+                      <!-- <div class="temp">cuisine 1</div> -->
+                      <!-- <div class="temp">cuisine 2</div> -->
+                  </div>
+                  <button class="btn btn-warning btn-lg mb-4 bookmarkButton mt-3">bookmark</button>
+                </div>
+              
+                <!-- <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+                <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+                <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+                <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 col-sm-12">
+            <div class="card bg-light">
+              <div class="card-body text-center">
+                <div class="today" id="parkFour">
+                  <img src="img/nature.png" alt="weather icon" class="w-icon p-3">
+                  <h3 class="card-title mb-3 ret">Park Four Name</h3>
+                  <div class="other">
+                      <div class="day">Park address</div>
+                      <!-- <div class="temp">cuisine 1</div> -->
+                      <!-- <div class="temp">cuisine 2</div> -->
+                  </div>
+                  <button class="btn btn-warning btn-lg mb-4 bookmarkButton mt-3">bookmark</button>
+                </div>
+                <!-- <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+                <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+                <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+                <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     <!-- Weather -->
+     <section id="instructors" class="p-5 bg-primary">
+      <div class="container">
+        <h2 class="text-center text-white"> Weather Forecast</h2>
+        <!-- <p class="lead text-center text-white mb-5">
+          Our instructors all have 5+ years working as a web developer in the
+          industry
+        </p> -->
+        <div class="d-flex flex-row  overflow-auto">
+          <div class="col-md-6 col-lg-3 col-sm-12">
+            <div class="card bg-light">
+              <div class="card-body text-center">
+                <div class="today" id="current-temp">
+                  <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                  <div class="other">
+                      <h3 class="day">Day</h3>
+                      <div class="temp">Day - 35.6&#176; C</div>
+                      <div class="temp">Night - 25.6&#176; C</div> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 col-sm-12">
+            <div class="card bg-light">
+              <div class="card-body text-center">
+                <div class="today" id="dayTwo-temp">
+                  <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                  <div class="other">
+                    <h3 class="day">Day</h3>
+                    <div class="temp">Day - 35.6&#176; C</div>
+                    <div class="temp">Night - 25.6&#176; C</div> 
+                  </div>
+              </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 col-sm-12">
+            <div class="card bg-light">
+              <div class="card-body text-center">
+                <div class="today" id="dayThree-temp">
+                  <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                  <div class="other">
+                    <h3 class="day">Day</h3>
+                      <div class="temp">Day - 35.6&#176; C</div>
+                      <div class="temp">Night - 25.6&#176; C</div> 
+                  </div>
+              </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 col-sm-12">
+            <div class="card bg-light">
+              <div class="card-body text-center">
+                <div class="today" id="dayFour-temp">
+                  <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                  <div class="other">
+                    <h3 class="day">Day</h3>
+                    <div class="temp">Day - 35.6&#176; C</div>
+                    <div class="temp">Night - 25.6&#176; C</div> 
+                  </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     <!-- mapbox map -->
+    
+
+    <!-- Question Accordion -->
+    <section id="questions" class="p-5">
+        <div class="container">
+          <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+          <div class="accordion accordion-flush" id="questions">
+            <!-- Item 1 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#question-one"
+                >
+                  What technologies does this web application use?
+                </button>
+              </h2>
+              <div
+                id="question-one"
+                class="accordion-collapse collapse"
+                data-bs-parent="#questions"
+              >
+                <div class="accordion-body">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+                  beatae fuga animi distinctio perspiciatis adipisci velit maiores
+                  totam tempora accusamus modi explicabo accusantium consequatur,
+                  praesentium rem quisquam molestias at quos vero. Officiis ad
+                  velit doloremque at. Dignissimos praesentium necessitatibus
+                  natus corrupti cum consequatur aliquam! Minima molestias iure
+                  quam distinctio velit.
+                </div>
+              </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#question-two"
+                >
+                  How much did it cost to build this application?
+                </button>
+              </h2>
+              <div
+                id="question-two"
+                class="accordion-collapse collapse"
+                data-bs-parent="#questions"
+              >
+                <div class="accordion-body">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+                  beatae fuga animi distinctio perspiciatis adipisci velit maiores
+                  totam tempora accusamus modi explicabo accusantium consequatur,
+                  praesentium rem quisquam molestias at quos vero. Officiis ad
+                  velit doloremque at. Dignissimos praesentium necessitatibus
+                  natus corrupti cum consequatur aliquam! Minima molestias iure
+                  quam distinctio velit.
+                </div>
+              </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#question-three"
+                >
+                  how do I use this application?
+                </button>
+              </h2>
+              <div
+                id="question-three"
+                class="accordion-collapse collapse"
+                data-bs-parent="#questions"
+              >
+                <div class="accordion-body">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+                  beatae fuga animi distinctio perspiciatis adipisci velit maiores
+                  totam tempora accusamus modi explicabo accusantium consequatur,
+                  praesentium rem quisquam molestias at quos vero. Officiis ad
+                  velit doloremque at. Dignissimos praesentium necessitatibus
+                  natus corrupti cum consequatur aliquam! Minima molestias iure
+                  quam distinctio velit.
+                </div>
+              </div>
+            </div>
+            <!-- Item 4 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#question-four"
+                >
+                  what is the creators favorite part of this application?
+                </button>
+              </h2>
+              <div
+                id="question-four"
+                class="accordion-collapse collapse"
+                data-bs-parent="#questions"
+              >
+                <div class="accordion-body">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+                  beatae fuga animi distinctio perspiciatis adipisci velit maiores
+                  totam tempora accusamus modi explicabo accusantium consequatur,
+                  praesentium rem quisquam molestias at quos vero. Officiis ad
+                  velit doloremque at. Dignissimos praesentium necessitatibus
+                  natus corrupti cum consequatur aliquam! Minima molestias iure
+                  quam distinctio velit.
+                </div>
+              </div>
+            </div>
+            <!-- Item 5 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#question-five"
+                >
+                  how can we connect?
+                </button>
+              </h2>
+              <div
+                id="question-five"
+                class="accordion-collapse collapse"
+                data-bs-parent="#questions"
+              >
+                <div class="accordion-body">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+                  beatae fuga animi distinctio perspiciatis adipisci velit maiores
+                  totam tempora accusamus modi explicabo accusantium consequatur,
+                  praesentium rem quisquam molestias at quos vero. Officiis ad
+                  velit doloremque at. Dignissimos praesentium necessitatibus
+                  natus corrupti cum consequatur aliquam! Minima molestias iure
+                  quam distinctio velit.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- modal -->
+    <div
+    class="modal fade"
+    id="enroll"
+    tabindex="-1"
+    aria-labelledby="enrollLabel"
+    aria-hidden="true"
+    >
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="enrollLabel"></h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          
+        </div>
+        <section class="container">
+          <h2 class="text-center text-black">Reference Map</h2>
+          <div id='map' style='width: 100%; height: 400px;'></div>
+        </section>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          
+        </div>
+      </div>
+    </div>
+    </div>
+
+   
+
+   
+    
+
+
+  <!-- bootstrap javascript script -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"
+  ></script>
+  
+
+
+  <!-- moment script for unix time conversions -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ 
+ 
+  <script src="main.js"></script>
+  <script src="geo_location.js "></script>
+  <script src="weather_api.js"></script>
+  <script src="restaurant_api.js"></script>
+  <script src="parks_api.js"></script>
+  <script src="mapbox.js"></script>
+  <!-- <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-61a29e86c4c7ffc3"></script>  -->
+</body>
+</html>

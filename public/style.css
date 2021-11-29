@@ -1,0 +1,16 @@
+/* navBar is fixed and out of document flow */
+body::before {
+  display: block;
+  content: '';
+  height: 60px;
+}
+
+
+
+/* for mobile, make cards scrollable*/
+@media only screen and (max-width : 576px)
+{
+  .mobile-card-container > .row {
+    overflow-x: auto;
+  }
+}
