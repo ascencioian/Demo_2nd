@@ -25,12 +25,12 @@ function triggeredEventListenerThree (){
     })
     .then(res => res.json())
     .then(result => {
-        console.log(result);
-        console.log(result.results[0].geometry.location.lat) //console.log latitude
-        console.log(result.results[0].geometry.location.lng) //console.log longitude
 
-        let lat = result.results[0].geometry.location.lat
-        let lon = result.results[0].geometry.location.lng
+        // console.log(result);
+        // console.log(result.results[0].geometry.location.lat) //console.log latitude
+        // console.log(result.results[0].geometry.location.lng) //console.log longitude
+        // let lat = result.results[0].geometry.location.lat
+        // let lon = result.results[0].geometry.location.lng
         
         // call back functions for other API's
         getParks (lat, lon)
