@@ -108,7 +108,7 @@ app.post('/content', (req, res) => {
   db.collection('content').save({name: req.body.name, address: req.body.address, postedBy: user}, (err, result) => {
     if (err) return console.log(err)
     console.log('saved to database')
-  
+    res.status(200)
   }) 
 })
 
