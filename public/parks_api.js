@@ -53,13 +53,18 @@ function showParkData(data){
                 <div class="temp">lon: ${park.geometry.coordinates[0]}</div>  
             </div>
             <i class="bi bi-star-fill"></i>
-            <form action="/content" method="POST"> 
+            <form action="/content" method="POST" id="parkOneEl"> 
             <input class="d-none" type="text" name="name" placeholder="name" value="${park.properties.name}">
             <input class="d-none" type="text" name="address" placeholder="address" value="${park.geometry.coordinates[1]}, ${park.geometry.coordinates[0]}">
             <button class="btn btn-warning btn-lg mt-3 mb-3" type="submit">Bookmark</button>
             </form>
             
             `
+            document.getElementById("parkOneEl").addEventListener( "submit" , function(e){
+                e.submitter.classList.remove('btn-warning')
+                e.submitter.classList.add('btn-success')
+                e.submitter.innerHTML+= "ed!"
+            })
       
         }else if( idx == 1){
             parkTwoEl.innerHTML = `
@@ -70,13 +75,19 @@ function showParkData(data){
                 <div class="temp">lon: ${park.geometry.coordinates[0]}</div>  
             </div>
             <i class="bi bi-star-fill"></i>
-            <form action="/content" method="POST"> 
+            <form action="/content" method="POST" id="parkTwoEl"> 
             <input class="d-none" type="text" name="name" placeholder="name" value="${park.properties.name}">
             <input class="d-none" type="text" name="address" placeholder="address" value="${park.geometry.coordinates[1]}, ${park.geometry.coordinates[0]}">
             <button class="btn btn-warning btn-lg mt-3 mb-3" type="submit">Bookmark</button>
             </form>
             
             `
+            document.getElementById("parkTwoEl").addEventListener( "submit" , function(e){
+                e.submitter.classList.remove('btn-warning')
+                e.submitter.classList.add('btn-success')
+                e.submitter.innerHTML+= "ed!"
+            })
+
         }else if( idx == 2){
             parkThreeEl.innerHTML = `
             <img src="img/nature.png" alt="weather icon" class="w-icon p-3">
@@ -86,13 +97,20 @@ function showParkData(data){
                 <div class="temp">lon: ${park.geometry.coordinates[0]}</div>  
             </div>
             <i class="bi bi-star-fill"></i>
-            <form action="/content" method="POST"> 
+            <form action="/content" method="POST" id="parkThreeEl"> 
             <input class="d-none" type="text" name="name" placeholder="name" value="${park.properties.name}">
             <input class="d-none" type="text" name="address" placeholder="address" value="${park.geometry.coordinates[1]}, ${park.geometry.coordinates[0]}">
             <button class="btn btn-warning btn-lg mt-3 mb-3" type="submit">Bookmark</button>
             </form>
             
             `
+
+            document.getElementById("parkThreeEl").addEventListener( "submit" , function(e){
+                e.submitter.classList.remove('btn-warning')
+                e.submitter.classList.add('btn-success')
+                e.submitter.innerHTML+= "ed!"
+            })
+
         }else if( idx == 3){
             parkFourEl.innerHTML = `
             <img src="img/nature.png" alt="weather icon" class="w-icon p-3">
@@ -102,13 +120,20 @@ function showParkData(data){
                 <div class="temp">lon: ${park.geometry.coordinates[0]}</div>  
             </div>
             <i class="bi bi-star-fill"></i>
-            <form action="/content" method="POST"> 
+            <form action="/content" method="POST" id="parkFourEl"> 
             <input class="d-none" type="text" name="name" placeholder="name" value="${park.properties.name}">
             <input class="d-none" type="text" name="address" placeholder="address" value="${park.geometry.coordinates[1]}, ${park.geometry.coordinates[0]}">
             <button class="btn btn-warning btn-lg mt-3 mb-3" type="submit">Bookmark</button>
             </form>
             
             `
+
+            document.getElementById("parkFourEl").addEventListener( "submit" , function(e){
+                e.submitter.classList.remove('btn-warning')
+                e.submitter.classList.add('btn-success')
+                e.submitter.innerHTML+= "ed!"
+            })
+
         }
     })
     

@@ -108,7 +108,7 @@ app.post('/content', (req, res) => {
   db.collection('content').save({name: req.body.name, address: req.body.address, postedBy: user}, (err, result) => {
     if (err) return console.log(err)
     console.log('saved to database')
-    
+  
   }) 
 })
 
@@ -191,7 +191,7 @@ app.post('/content', (req, res) => {
 
         // process the signup form
         app.post('/signup', passport.authenticate('local-signup', {
-            successRedirect : '/profile', // redirect to the secure profile section
+            successRedirect : '/feed', // redirect to the secure profile section
             failureRedirect : '/signup', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
         }));

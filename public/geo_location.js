@@ -32,6 +32,7 @@ function triggeredEventListenerThree (){
         let lat = result.results[0].geometry.location.lat
         let lon = result.results[0].geometry.location.lng
         
+        // call back functions for other API's
         getParks (lat, lon)
         getWeather(lat, lon)
         getRestaurants(lat, lon)

@@ -63,14 +63,18 @@ function showRestaurantData(result){
             <h3 class="card-title mb-3 ret">${restaurant.name}</h3>
             <div>${restaurant.address}</div>
             <i class="bi bi-star-fill"></i>
-            <form action="/content" method="POST"> 
+            <form action="/content" method="POST" id="RestaurantOneEl"> 
             <input class="d-none" type="text" name="name" placeholder="name" value="${restaurant.name}">
             <input class="d-none" type="text" name="address" placeholder="address" value="${restaurant.address}">
             <button class="btn btn-warning btn-lg mt-3 mb-3" type="submit">Bookmark</button>
             </form>
             
             `
-            
+            document.getElementById("RestaurantOneEl").addEventListener( "submit" , function(e){
+            e.submitter.classList.remove('btn-warning')
+            e.submitter.classList.add('btn-success')
+            e.submitter.innerHTML+= "ed!"
+            })
                
         }else if( idx == 1){
             RestaurantTwoEl.innerHTML = `
@@ -78,39 +82,55 @@ function showRestaurantData(result){
             <h3 class="card-title mb-3 ret">${restaurant.name}</h3>
             <div>${restaurant.address}</div>
             <i class="bi bi-star-fill"></i>
-            <form action="/content" method="POST"> 
+            <form action="/content" method="POST"  id="RestaurantTwoEl"> 
             <input class="d-none" type="text" name="name" placeholder="name" value="${restaurant.name}">
             <input class="d-none" type="text" name="address" placeholder="address" value="${restaurant.address}">
             <button class="btn btn-warning btn-lg mt-3 mb-3" type="submit">Bookmark</button>
             </form>
             
             `
+            document.getElementById("RestaurantTwoEl").addEventListener( "submit" , function(e){
+                e.submitter.classList.remove('btn-warning')
+                e.submitter.classList.add('btn-success')
+                e.submitter.innerHTML+= "ed!"
+            })
+
         }else if( idx == 2){
             RestaurantThreeEl.innerHTML = `
             <img src="img/restaurant.png" alt="weather icon" class="w-icon p-3">
             <h3 class="card-title mb-3 ret">${restaurant.name}</h3>
             <div>${restaurant.address}</div>
             <i class="bi bi-star-fill"></i>
-            <form action="/content" method="POST"> 
+            <form action="/content" method="POST" id="RestaurantThreeEl"> 
             <input class="d-none" type="text" name="name" placeholder="name" value="${restaurant.name}">
             <input class="d-none" type="text" name="address" placeholder="address" value="${restaurant.address}">
             <button class="btn btn-warning btn-lg mt-3 mb-3" type="submit">Bookmark</button>
             </form>
             
             `
+            document.getElementById("RestaurantThreeEl").addEventListener( "submit" , function(e){
+                e.submitter.classList.remove('btn-warning')
+                e.submitter.classList.add('btn-success')
+                e.submitter.innerHTML+= "ed!"
+            })
+
         }else if( idx == 3){
             RestaurantFourEl.innerHTML = `
             <img src="img/restaurant.png" alt="weather icon" class="w-icon p-3">
             <h3 class="card-title mb-3 ret">${restaurant.name}</h3>
             <div>${restaurant.address}</div>
             <i class="bi bi-star-fill"></i>
-            <form action="/content" method="POST"> 
+            <form action="/content" method="POST" id="RestaurantFourEl"> 
             <input class="d-none" type="text" name="name" placeholder="name" value="${restaurant.name}">
             <input class="d-none" type="text" name="address" placeholder="address" value="${restaurant.address}">
             <button class="btn btn-warning btn-lg mt-3 mb-3" type="submit">Bookmark</button>
             </form>
             `
-            
+            document.getElementById("RestaurantFourEl").addEventListener( "submit" , function(e){
+                e.submitter.classList.remove('btn-warning')
+                e.submitter.classList.add('btn-success')
+                e.submitter.innerHTML+= "ed!"
+            })
         }
     })
     
