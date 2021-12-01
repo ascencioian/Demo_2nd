@@ -4,6 +4,15 @@ const RestaurantTwoEl = document.getElementById('RestaurantTwo');
 const RestaurantThreeEl = document.getElementById('RestaurantThree');
 const RestaurantFourEl = document.getElementById('RestaurantFour');
 
+// document.querySelectorAll("button").forEach((button) => button.addEventListener("click", function(e){
+//     e.preventDefault()
+// }))
+
+
+
+//call function 
+//getRestaurants()
+
 //function 
 function getRestaurants (lat, lon){
 
@@ -20,7 +29,6 @@ function getRestaurants (lat, lon){
     })
     .then(res => res.json())
     .then(result => {
-
         //console.log(result)
         // for(i=0 ; i<= result.data.length; i++){
         //     let restaurantName = result.data[i].name
@@ -30,7 +38,6 @@ function getRestaurants (lat, lon){
         //     let priceLevel = result.data[i].price_level
         //     document.querySelector('#restaurantResults').innerHTML += `${restaurantName} is located at ${restaurantAddress}. cuisine info: ${cuisineDescription}. price level: ${priceLevel} </br>`
         // }
-
         showRestaurantData(result)
          
     })
@@ -41,7 +48,14 @@ function getRestaurants (lat, lon){
 
 
 function showRestaurantData(result){
+    // let {humidity, pressure, sunrise, sunset, wind_speed} = data.current
+    // console.log(humidity, '%')
+    // console.log(pressure)
+    // console.log(sunrise)  //in unix time code
+    // console.log(sunset)  // in unix time code
+    // console.log(wind_speed, 'mph')
 
+    
     result.data.forEach((restaurant, idx) => {
         if(idx == 0){
             RestaurantOneEl.innerHTML = `
@@ -59,7 +73,7 @@ function showRestaurantData(result){
             document.getElementById("RestaurantOneEl").addEventListener( "submit" , function(e){
             e.submitter.classList.remove('btn-warning')
             e.submitter.classList.add('btn-success')
-            e.submitter.innerHTML= "Bookmarked!"
+            e.submitter.innerHTML+= "ed!"
             })
                
         }else if( idx == 1){
@@ -78,7 +92,7 @@ function showRestaurantData(result){
             document.getElementById("RestaurantTwoEl").addEventListener( "submit" , function(e){
                 e.submitter.classList.remove('btn-warning')
                 e.submitter.classList.add('btn-success')
-                e.submitter.innerHTML= "Bookmarked!"
+                e.submitter.innerHTML+= "ed!"
             })
 
         }else if( idx == 2){
@@ -97,7 +111,7 @@ function showRestaurantData(result){
             document.getElementById("RestaurantThreeEl").addEventListener( "submit" , function(e){
                 e.submitter.classList.remove('btn-warning')
                 e.submitter.classList.add('btn-success')
-                e.submitter.innerHTML= "Bookmarked!"
+                e.submitter.innerHTML+= "ed!"
             })
 
         }else if( idx == 3){
@@ -115,7 +129,7 @@ function showRestaurantData(result){
             document.getElementById("RestaurantFourEl").addEventListener( "submit" , function(e){
                 e.submitter.classList.remove('btn-warning')
                 e.submitter.classList.add('btn-success')
-                e.submitter.innerHTML= "Bookmarked!"
+                e.submitter.innerHTML+= "ed!"
             })
         }
     })

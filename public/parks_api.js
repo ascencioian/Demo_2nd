@@ -5,6 +5,9 @@ const parkThreeEl = document.getElementById('parkThree');
 const parkFourEl = document.getElementById('parkFour');
 
 
+//call function 
+//getParks()
+
 function getParks (lat, lon){
 
     //API Keys
@@ -19,14 +22,15 @@ function getParks (lat, lon){
     })
     .then(res => res.json())
     .then(data => {
-
         // console.log(response);
         // for(i=0 ; i<= response.features.length; i++){
+         
+           
         //     console.log(response.features[i].properties.name)
         //     console.log(response.features[i].geometry.coordinates[0]) //long
         //     console.log(response.features[i].geometry.coordinates[1]) //lat
+            
         // }
-
         showParkData(data)
 
     })
@@ -59,7 +63,7 @@ function showParkData(data){
             document.getElementById("parkOneEl").addEventListener( "submit" , function(e){
                 e.submitter.classList.remove('btn-warning')
                 e.submitter.classList.add('btn-success')
-                e.submitter.innerHTML= "Bookmarked!"
+                e.submitter.innerHTML+= "ed!"
             })
       
         }else if( idx == 1){
@@ -81,7 +85,7 @@ function showParkData(data){
             document.getElementById("parkTwoEl").addEventListener( "submit" , function(e){
                 e.submitter.classList.remove('btn-warning')
                 e.submitter.classList.add('btn-success')
-                e.submitter.innerHTML= "Bookmarked!"
+                e.submitter.innerHTML+= "ed!"
             })
 
         }else if( idx == 2){
@@ -104,7 +108,7 @@ function showParkData(data){
             document.getElementById("parkThreeEl").addEventListener( "submit" , function(e){
                 e.submitter.classList.remove('btn-warning')
                 e.submitter.classList.add('btn-success')
-                e.submitter.innerHTML= "Bookmarked!"
+                e.submitter.innerHTML+= "ed!"
             })
 
         }else if( idx == 3){
@@ -127,7 +131,7 @@ function showParkData(data){
             document.getElementById("parkFourEl").addEventListener( "submit" , function(e){
                 e.submitter.classList.remove('btn-warning')
                 e.submitter.classList.add('btn-success')
-                e.submitter.innerHTML= "Bookmarked!"
+                e.submitter.innerHTML+= "ed!"
             })
 
         }

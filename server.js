@@ -10,7 +10,7 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var flash    = require('connect-flash');
 var ObjectId = require('mongodb').ObjectId  //required to render images 
-
+var multer = require('multer') //require multer for image uploading
 
 var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
